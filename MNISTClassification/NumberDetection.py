@@ -6,15 +6,17 @@ import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 
 # Config
-learning_rate = 0.03
-batch_size = 64
+LEARNING_RATE = 0.01
+BATCH_SIZE = 64
+HIDDEN1 = 300
+HIDDEN2 = 200
 
 class MyNN(nn.Module):
     def __init__(self) -> None:
         super(MyNN, self).__init__()
-        self.input_to_hidden1 = nn.Linear(28 * 28, 512)
-        self.hidden1_to_hidden2 = nn.Linear(512, 128)
-        self.hidden2_to_output = nn.Linear(128, 10)
+        self.input_to_hidden1 = nn.Linear(28 * 28, HIDDEN1)
+        self.hidden1_to_hidden2 = nn.Linear(HIDDEN1, HIDDEN2)
+        self.hidden2_to_output = nn.Linear(HIDDEN2, 10)
 
     def forward(self, x):
         x = x.view(-1, 28 * 28)
@@ -30,16 +32,16 @@ transform = transforms.Compose([
 ])
 
 train_set = MNIST(root = "./", train = True, download = True, transform = transform)
-train_loader = DataLoader(train_set, batch_size = batch_size, shuffle = True)
+train_loader = DataLoader(train_set, batch_size = BATCH_SIZE, shuffle = True)
 
 # print(train_loader)
 
 test_dataset = MNIST('./', train = False, transform = transform)
-test_loader = DataLoader(test_dataset, batch_size = batch_size, shuffle = True)
+test_loader = DataLoader(test_dataset, batch_size = BATCH_SIZE, shuffle = True)
 
 model = MyNN()
 criterion = nn.CrossEntropyLoss()
-optimizer = torch.optim.SGD(model.parameters(), lr = 0.01, momentum = 0.9)
+optimizer = torch.optim.SGD(model.parameters(), lr = LEARNING_RATE, momentum = 0.9)
 
 num_epochs = 5
 for epoch in range(num_epochs):
@@ -67,7 +69,6 @@ with torch.no_grad():
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
 
-print('Accuracy of the network on the 10000 test images: %d %%' % (
-    100 * correct / total))
+print('Accuracy of the network on the test set: %d %%' % (    100 * correct / total))
 
 
