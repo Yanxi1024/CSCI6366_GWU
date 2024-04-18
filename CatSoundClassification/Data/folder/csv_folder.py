@@ -29,6 +29,6 @@ def generator(csv_path, sound_dir):
     dataframe.to_csv(csv_path, encoding='utf-8')
 
 
-csv_path = r'/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/folder/refer.csv'
-sound_dir = r'/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/folder/Sound'
+csv_path = r'./refer.csv'
+sound_dir = r'./Sound'
 generator(csv_path, sound_dir)

@@ -19,7 +19,7 @@ def check_npy_file_size(folder_path, target_size):
         print("All .npy files have the correct size.")
 
 
-folder_path = "/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/scatter/npy_data/Happy"
+folder_path = "./npy_data/Happy"
 target_size = 882128  # bytes
 
 check_npy_file_size(folder_path, target_size)

@@ -29,7 +29,7 @@ def get_arg():
     parser.add_argument(
         '-classes',
         type=list,
-        default=trans(r'/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/scatter/classes.txt'),
+        default=trans(r'../Data/scatter/classes.txt'),
         help="classes list"
     )
     return parser.parse_args()

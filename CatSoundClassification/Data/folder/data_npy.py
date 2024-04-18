@@ -54,9 +54,9 @@ def generator(csv_path, sound_dir, npy_dir, target_duration=5.0, target_sr=44100
     dataframe.to_csv(csv_path, encoding='utf-8')
     return npy_data
 
-csv_path = r'/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/scatter/refer.csv'
-sound_dir = r'/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/folder/Sound'
-npy_dir = r'/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/scatter/npy_data'
+csv_path = r'../scatter/refer.csv'
+sound_dir = r'./Sound'
+npy_dir = r'../scatter/npy_data'
 target_duration = 5.0  # Set the target duration in seconds
 target_sr = 44100  # Set the target sample rate to 44.1kHz
 npy_data = generator(csv_path, sound_dir, npy_dir, target_duration)

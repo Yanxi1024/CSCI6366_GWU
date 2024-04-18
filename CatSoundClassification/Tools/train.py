@@ -27,19 +27,19 @@ def get_args():
     parser.add_argument(
         '-dp',
         type=str,
-        default=r'/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/scatter/cat_sound_data',
+        default=r'../Data/scatter/npy_data',
         help="train's directory"
     )
     parser.add_argument(
         '-classes',
         type=list,
-        default=trans(r'/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/scatter/classes.txt'),
+        default=trans(r'../Data/scatter/classes.txt'),
         help="classes list"
     )
     parser.add_argument(
         '-infop',
         type=str,
-        default=r'/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/Data/scatter/refer.csv',
+        default=r'../Data/scatter/refer.csv',
         help="DIF(folder information file)'s path"
     )
 
@@ -76,7 +76,7 @@ def get_args():
     parser.add_argument(
         '-ld',
         type=str,
-        default='/Users/ruiyangchen/Desktop/Course/6366/CSCI6366_GWU/CatSoundClassification/WorkDir',
+        default='../WorkDir',
         help="the training log's save directory"
     )
 
