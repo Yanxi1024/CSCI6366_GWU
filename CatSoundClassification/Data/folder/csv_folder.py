@@ -28,7 +28,7 @@ def generator(csv_path, sound_dir):
     dataframe = DataFrame(data=data)
     dataframe.to_csv(csv_path, encoding='utf-8')
 
-
-csv_path = r'./refer.csv'
-sound_dir = r'./Sound'
-generator(csv_path, sound_dir)
+if __name__ == '__main__':
+    csv_path = r'./refer.csv'
+    sound_dir = r'./Sound'
+    generator(csv_path, sound_dir)

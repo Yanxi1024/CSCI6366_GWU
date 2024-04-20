@@ -18,10 +18,10 @@ def check_npy_file_size(folder_path, target_size):
     else:
         print("All .npy files have the correct size.")
 
+if __name__ == '__main__':
+    folder_path = "./npy_data/Happy"
+    target_size = 882128  # bytes
 
-folder_path = "./npy_data/Happy"
-target_size = 882128  # bytes
-
-check_npy_file_size(folder_path, target_size)
+    check_npy_file_size(folder_path, target_size)
 
 

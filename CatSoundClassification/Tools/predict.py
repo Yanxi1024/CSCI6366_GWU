@@ -34,26 +34,27 @@ def get_arg():
     )
     return parser.parse_args()
 
-args = get_arg()
-# ----------------------------------------------------------------------------------------------------------------------
-# Load model
-if torch.cuda.is_available():
-    print("Predict on cuda and there are/is {} gpus/gpu all.".format(torch.cuda.device_count()))
-    print("Device name:{}\nCurrent device index:{}.".format(torch.cuda.get_device_name(), torch.cuda.current_device()))
-else:
-    print("Predict on cpu.")
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print("Load weight from the path:{}.".format(args.wp))
-model = torch.load(args.wp)
-model = model.to(device)
-inputs = np.load(args.fp)
-inputs = ToTensor()(inputs).permute(1, 2, 0).unsqueeze(0).to(device)
-# ----------------------------------------------------------------------------------------------------------------------
-# Forward propagation for prediction
-output = model(inputs)  # shape: ( N * cls_n )
-output_ = output.clone().detach().cpu()
-_, pred = torch.max(output_, 1)  # Output the index of the maximum probability for each row (sample)
-print("Prediction:", args.classes[int(pred)])
+if __name__ == '__main__':
+    args = get_arg()
+    # ----------------------------------------------------------------------------------------------------------------------
+    # Load model
+    if torch.cuda.is_available():
+        print("Predict on cuda and there are/is {} gpus/gpu all.".format(torch.cuda.device_count()))
+        print("Device name:{}\nCurrent device index:{}.".format(torch.cuda.get_device_name(), torch.cuda.current_device()))
+    else:
+        print("Predict on cpu.")
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print("Load weight from the path:{}.".format(args.wp))
+    model = torch.load(args.wp)
+    model = model.to(device)
+    inputs = np.load(args.fp)
+    inputs = ToTensor()(inputs).permute(1, 2, 0).unsqueeze(0).to(device)
+    # ----------------------------------------------------------------------------------------------------------------------
+    # Forward propagation for prediction
+    output = model(inputs)  # shape: ( N * cls_n )
+    output_ = output.clone().detach().cpu()
+    _, pred = torch.max(output_, 1)  # Output the index of the maximum probability for each row (sample)
+    print("Prediction:", args.classes[int(pred)])
 
 
 
