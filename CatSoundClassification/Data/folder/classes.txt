@@ -1,0 +1,10 @@
+0 Paining
+1 Defence
+2 Happy
+3 Mating
+4 Warning
+5 Angry
+6 HuntingMind
+7 Fighting
+8 MotherCall
+9 Resting
