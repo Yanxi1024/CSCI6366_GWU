@@ -5,7 +5,7 @@ class AudioClassificationModel(Module):
     def __init__(self, num_classes):
         super().__init__()
         conv_layers = []
-        self.conv1 = Conv2d(1, 8, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2))  # Modified input channels to 1
+        self.conv1 = Conv2d(1, 8, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2))
         self.relu1 = ReLU()
         self.bn1 = BatchNorm2d(8)
         conv_layers += [self.conv1, self.relu1, self.bn1]

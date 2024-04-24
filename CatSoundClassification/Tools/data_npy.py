@@ -56,9 +56,9 @@ def generator(csv_path, sound_dir, npy_dir, target_duration=5.0, target_sr=44100
     return npy_data
 
 if __name__ == '__main__':
-    csv_path = r'../scatter/refer.csv'
-    sound_dir = r'./Sound'
-    npy_dir = r'../scatter/npy_data'
+    csv_path = r'../Data/scatter/refer.csv'
+    sound_dir = r'../Data/folder/Sound'
+    npy_dir = r'../Data/scatter/npy_data'
     target_duration = 5.0  # Set the target duration in seconds
     target_sr = 44100  # Set the target sample rate to 44.1kHz
     npy_data = generator(csv_path, sound_dir, npy_dir, target_duration)

@@ -85,7 +85,7 @@ def audio_preprocess(filepath):
     fig_em.colorbar(img_em, ax=axs_em, format="%+2.f dB")
     plt.show()
 
-    # Feature Banks
+    # Filter Banks
     # Use Mel-scaled filter banks
     win_length_fb = 512
     hop_length_fb = 160
@@ -116,5 +116,5 @@ def audio_preprocess(filepath):
 
 
 if __name__ == '__main__':
-    file_path = './car_single.mp3'
+    file_path = 'cat_single.mp3'
     audio_preprocess(file_path)
