@@ -133,6 +133,10 @@ Model:\n{}\n,
     checkpoints_path = exp_path + '/checkpoints'
     os.makedirs(exp_path, exist_ok=True)
     os.makedirs(checkpoints_path, exist_ok=True)
+    # get device
+    device_type = 'cuda'
+    if training_device_table == 'CPU':
+        device_type = 'cpu'
     # logger
     log_name = '{}_{}_{}_{}_{}_{}.log'.format(
         train_theme_name,
@@ -155,7 +159,8 @@ Model:\n{}\n,
         minute, second
     ),
         outputs_path=checkpoints_path + '/' + 'final_model.onnx',
-        inputs_shape=inputs_shape
+        inputs_shape=inputs_shape,
+        device=device_type
     )
     # best_checkpoints
     torch.save(best_cp, checkpoints_path + '/' + 'best_f1.pth'.format(
@@ -170,7 +175,8 @@ Model:\n{}\n,
             minute, second
         ),
         outputs_path=checkpoints_path + '/' + 'best_f1.onnx',
-        inputs_shape=inputs_shape
+        inputs_shape=inputs_shape,
+        device=device_type
     )
     # indicator.csv and indicator.jpg
     log_plot(epoches, tags, save_fig_dir=exp_path, csv_save_path=exp_path + '/indicators.csv')
