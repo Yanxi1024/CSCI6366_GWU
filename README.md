@@ -1,5 +1,5 @@
 # CSCI6366_GWU
-## Alex Chen; Haoze Wang; Yanxi Li
+## Ruiyang Chen; Haoze Wang; Yanxi Li
 
 ## Cat Sound Classification
 We conducted transfer learning based on ResNet18, ResNet50, and EfficientNetV2-S to classify a dataset of cat sounds. We wrote a paper for this project: https://raphael.quarto.pub/meownetwebpage/
