@@ -163,23 +163,28 @@ Model:\n{}\n,
         device=device_type
     )
     # best_checkpoints
-    torch.save(best_cp, checkpoints_path + '/' + 'best_f1.pth'.format(
+    # torch.save(best_cp, checkpoints_path + '/' + 'best_f1.pth'.format(
+    #     train_theme_name,
+    #     year, month, day, hour,
+    #     minute, second
+    # ))
+    torch.save(best_cp['model_state_dict'], checkpoints_path + '/best_f1.pth'.format(
         train_theme_name,
         year, month, day, hour,
         minute, second
     ))
-    torch2onnx(
-        model_path=checkpoints_path + '/' + 'best_f1.pth'.format(
-            train_theme_name,
-            year, month, day, hour,
-            minute, second
-        ),
-        outputs_path=checkpoints_path + '/' + 'best_f1.onnx',
-        inputs_shape=inputs_shape,
-        device=device_type
-    )
+    # torch2onnx(
+    #     model_path=checkpoints_path + '/' + 'best_f1.pth'.format(
+    #         train_theme_name,
+    #         year, month, day, hour,
+    #         minute, second
+    #     ),
+    #     outputs_path=checkpoints_path + '/' + 'best_f1.onnx',
+    #     inputs_shape=inputs_shape,
+    #     device=device_type
+    # )
     # indicator.csv and indicator.jpg
-    log_plot(epoches, tags, save_fig_dir=exp_path, csv_save_path=exp_path + '/indicators.csv')
+    # log_plot(epoches, tags, save_fig_dir=exp_path, csv_save_path=exp_path + '/indicators.csv')
     print("Training log has been saved to path:{}".format(exp_path))
     # datasets' distribution
     dataset_distribution(refer_path=csv_path, cls=cls, save_dir=exp_path)

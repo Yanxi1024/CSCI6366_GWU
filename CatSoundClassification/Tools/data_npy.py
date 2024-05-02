@@ -3,7 +3,7 @@ import numpy as np
 from pandas import DataFrame
 from librosa.core import load
 from tqdm import tqdm
-from CatSoundClassification.Data.folder.audio_extraction import audio_extraction
+from CSCI6366_GWU.CatSoundClassification.Data.folder.audio_extraction import audio_extraction
 
 def get_class_list(sound_dir):
     return os.listdir(sound_dir)

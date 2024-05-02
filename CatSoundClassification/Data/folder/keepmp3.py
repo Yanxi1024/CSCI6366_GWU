@@ -18,5 +18,5 @@ def delete_non_mp3_files(folder_path):
 
 
 # Example usage
-folder_path = './Sound'
+folder_path = './SoundTest'
 delete_non_mp3_files(folder_path)
